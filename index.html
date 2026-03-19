@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0f172a">
-    <title>Interactive WaaS Analysis | INVILA™ GROUP </title>
+    <title>Interactive WaaS Analysis | INVILA™ GROUP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -24,95 +24,16 @@
         };
     </script>
     <style>
-        html {
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            scroll-padding-top: 84px;
-        }
-        body {
-            background-color: #f8fafc;
-            color: #0f172a;
-            overflow-x: hidden;
-            overscroll-behavior-x: none;
-            padding-bottom: env(safe-area-inset-bottom);
-        }
-        section[id] {
-            scroll-margin-top: 84px;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 280px;
-            max-height: 450px;
-        }
-        @media (max-width: 420px) {
-            .chart-container { height: 240px; }
-        }
-        @media (min-width: 768px) {
-            .chart-container { height: 420px; }
-        }
-        input[type=range] {
-            -webkit-appearance: none;
-            appearance: none;
-            background: #cbd5e1;
-            height: 6px;
-            border-radius: 10px;
-            width: 100%;
-            outline: none;
-            touch-action: pan-y;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background: #0d9488;
-            cursor: pointer;
-            border: 4px solid #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.1s;
-        }
-        input[type=range]::-moz-range-thumb {
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background: #0d9488;
-            cursor: pointer;
-            border: 4px solid #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        @media (max-width: 640px) {
-            input[type=range]::-webkit-slider-thumb {
-                height: 28px;
-                width: 28px;
-            }
-            input[type=range]::-moz-range-thumb {
-                height: 28px;
-                width: 28px;
-            }
-        }
-        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.08); }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 84px; }
+        body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; padding-bottom: env(safe-area-inset-bottom); }
+        .chart-container { position: relative; width: 100%; max-width: 1000px; margin: auto; height: 350px; }
+        input[type=range] { -webkit-appearance: none; appearance: none; background: #cbd5e1; height: 6px; border-radius: 10px; width: 100%; outline: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: #0d9488; cursor: pointer; border: 4px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         input[type=range].cost-slider::-webkit-slider-thumb { background: #0f172a; }
-        input[type=range].cost-slider::-moz-range-thumb { background: #0f172a; }
-        button, input, select, textarea, a {
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
-        input[type="number"], button, a { min-height: 44px; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        @media (max-width: 640px) {
-            input[type="number"], select, textarea { font-size: 16px; }
-        }
     </style>
 </head>
-<body class="border-t-8 border-teal-600 antialiased selection:bg-teal-500/30 pb-[max(5.5rem,env(safe-area-inset-bottom))] md:pb-0">
-    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm pt-[env(safe-area-inset-top)]">
+<body class="border-t-8 border-teal-600 antialiased selection:bg-teal-500/30">
+    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <div class="flex items-center gap-3">
                 <div class="flex h-12 w-auto items-center justify-center py-1">
@@ -124,827 +45,194 @@
                 </div>
             </div>
             <div class="hidden md:flex gap-8">
-                <a href="#konteks" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600 transition-colors">Validasi Beban</a>
-                <a href="#dashboard-interaktif" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600 transition-colors">Simulasi ROI</a>
-                <a href="#manajemen-risiko" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600 transition-colors">Mitigasi Risiko</a>
+                <a href="#konteks" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600">Validasi Beban</a>
+                <a href="#dashboard-interaktif" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600">Simulasi ROI</a>
+                <a href="#tindak-lanjut" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-teal-600">Langkah Lanjut</a>
             </div>
-            <a href="#tindak-lanjut" class="hidden lg:flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-teal-600 transition-colors">
-                Ambil Tindakan <span class="text-lg leading-none">&#8595;</span>
-            </a>
         </div>
     </nav>
 
-    <main class="pb-28 md:pb-24">
-        <section id="konteks" class="pt-14 pb-12 px-4 sm:px-6 max-w-5xl mx-auto sm:pt-20 sm:pb-16">
-            <div class="bg-slate-100 border-l-4 border-navy-900 p-4 sm:p-5 rounded-r-xl mb-8 sm:mb-12 shadow-sm">
+    <main class="pb-20">
+        <section id="konteks" class="pt-14 pb-12 px-4 max-w-5xl mx-auto">
+            <div class="bg-slate-100 border-l-4 border-navy-900 p-5 rounded-r-xl mb-12 shadow-sm">
                 <p class="text-sm text-slate-700 leading-relaxed">
                     <strong class="text-navy-900 font-bold uppercase tracking-wider text-xs block mb-2">SAAT CAPEX MENJADI BEBAN DI AWAL</strong>
                     Kebutuhan Capex awal untuk WWTP dan air bersih sering menjadi tantangan finansial utama, karena dapat menekan likuiditas pabrik sebelum proyek mulai memberikan manfaat operasional.
                 </p>
             </div>
-
             <div class="text-center">
-                <div class="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5 text-xs font-bold text-teal-700 uppercase tracking-widest mb-6 shadow-sm">
-                    <span class="text-base leading-none">&#128202;</span> Interactive Financial Assessment
-                </div>
-                <h1 class="text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-900 sm:text-4xl md:text-6xl mb-5 sm:mb-6">
+                <h1 class="text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl mb-6">
                     Amankan Cash Flow Pabrik Anda Tanpa Beban <span class="text-teal-600">Capex untuk WWTP dan Air Bersih</span>
                 </h1>
-                <p class="mx-auto max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base md:text-2xl/relaxed mb-10 sm:mb-12 md:max-w-4xl">
+                <p class="mx-auto max-w-3xl text-slate-600 md:text-xl leading-relaxed mb-10">
                     Melalui skema Water-as-a-Service, pabrik Anda dapat membangun WWTP sekaligus mereklamasi effluent menjadi air bersih tanpa investasi modal besar di awal.
                 </p>
-
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-6 text-sm font-bold text-slate-700 md:gap-12">
-                    <div class="flex items-center justify-center gap-2 bg-white px-4 py-3 rounded-full shadow-sm border border-slate-200 w-full sm:w-auto"><span class="text-teal-500 text-lg">&#10003;</span> Tanpa Investasi Awal</div>
-                    <div class="flex items-center justify-center gap-2 bg-white px-4 py-3 rounded-full shadow-sm border border-slate-200 w-full sm:w-auto"><span class="text-teal-500 text-lg">&#10003;</span> Risiko Operasional Terkelola</div>
-                    <div class="flex items-center justify-center gap-2 bg-white px-4 py-3 rounded-full shadow-sm border border-slate-200 w-full sm:w-auto"><span class="text-teal-500 text-lg">&#10003;</span> Kepatuhan Mutu Terjaga</div>
-                </div>
             </div>
         </section>
 
-        <section id="dashboard-interaktif" class="border-y border-slate-200 bg-white py-14 sm:py-16 md:py-20 relative">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="bg-teal-50 border-l-4 border-teal-600 p-4 sm:p-5 rounded-r-xl mb-8 sm:mb-12 shadow-sm">
+        <section id="dashboard-interaktif" class="border-y border-slate-200 bg-white py-16">
+            <div class="mx-auto max-w-7xl px-4 lg:px-8">
+                <div class="bg-teal-50 border-l-4 border-teal-600 p-5 rounded-r-xl mb-12 shadow-sm">
                     <p class="text-sm text-slate-700 leading-relaxed">
                         <strong class="text-teal-800 font-bold uppercase tracking-wider text-xs block mb-2">SAAT STRUKTUR BIAYA MULAI TERLIHAT LEBIH JELAS</strong>
                         Bagian ini membantu menggambarkan bagaimana perubahan dari beban investasi awal ke skema biaya operasional yang lebih terukur dapat memengaruhi penghematan, gap biaya 5 tahun, dan akumulasi arus kas pabrik.
                     </p>
                 </div>
 
-                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-                    <h2 class="text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl md:text-4xl mb-4">Simulasi Restrukturisasi Biaya</h2>
-                    <p class="text-slate-600 text-base leading-relaxed">
-                        Kalibrasi <strong>Volume Air Harian</strong>, <strong>Biaya Opex Saat Ini</strong>, dan <strong>Tarif INVILA™</strong> di panel sebelah kiri. Sistem akan mengkalkulasi proyeksi penghematan, gap biaya 5 tahun, dan memodelkan perbandingan akumulasi arus kas.
-                    </p>
-                </div>
-
-                <div class="grid gap-8 md:gap-10 lg:grid-cols-[400px_1fr] items-start">
-                    <div class="flex flex-col gap-6">
-                        <div id="parameter-card" class="rounded-3xl border border-slate-200 bg-slate-50 p-5 sm:p-6 md:p-8 shadow-sm">
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-8 border-b border-slate-200 pb-3">Parameter Pabrik</h3>
-                            <div id="parameter-stack" class="space-y-6 sm:space-y-8">
+                <div class="grid gap-10 lg:grid-cols-[400px_1fr] items-start">
+                    <div class="space-y-6">
+                        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6 border-b pb-3">Parameter Pabrik</h3>
+                            <div class="space-y-8">
                                 <div>
-                                    <div class="flex items-end justify-between gap-3 mb-3 sm:mb-4 flex-wrap">
-                                        <label class="text-xs font-bold uppercase tracking-widest text-slate-600">Volume Harian (m³)</label>
-                                        <span class="text-xl sm:text-2xl font-black tracking-tight text-navy-900" id="volume-display">1.500</span>
-                                    </div>
-                                    <input type="range" id="volume-slider" min="100" max="10000" step="100" value="1500" class="w-full">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-slate-600 block mb-3">Volume Harian: <span id="volume-display" class="text-navy-900 font-black">1.500</span> m³</label>
+                                    <input type="range" id="volume-slider" min="100" max="10000" step="100" value="1500">
                                 </div>
                                 <div>
-                                    <div class="flex items-end justify-between gap-3 mb-3 sm:mb-4 flex-wrap">
-                                        <label class="text-xs font-bold uppercase tracking-widest text-slate-600">Opex Saat Ini (Rp/m³)</label>
-                                        <span class="text-xl sm:text-2xl font-black tracking-tight text-navy-900" id="cost-display">7.500</span>
-                                    </div>
-                                    <input type="range" id="cost-slider" min="2000" max="25000" step="500" value="7500" class="cost-slider w-full">
+                                    <label class="text-xs font-bold uppercase tracking-widest text-slate-600 block mb-3">Opex Saat Ini: Rp <span id="cost-display" class="text-navy-900 font-black">7.500</span>/m³</label>
+                                    <input type="range" id="cost-slider" min="2000" max="25000" step="500" value="7500" class="cost-slider">
                                 </div>
-                                <div class="rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-50 to-white p-4 sm:p-5 shadow-sm">
-                                    <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
-                                        <div>
-                                            <div class="flex items-center gap-2 flex-wrap mb-2">
-                                                <label for="invila-rate-input" class="text-xs font-bold uppercase tracking-widest text-slate-600">Tarif INVILA™ (Rp/m³)</label>
-                                                <span class="inline-flex items-center rounded-full border border-teal-200 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-700">Default Rp 5.500/m³</span>
-                                            </div>
-                                            <p class="text-[11px] leading-relaxed text-slate-500 max-w-[240px]">Drag slider untuk simulasi cepat, lalu koreksi dengan field angka jika perlu presisi proposal.</p>
-                                        </div>
-                                        <div class="grid grid-cols-[auto_auto] items-end gap-x-3 gap-y-1 rounded-xl border border-slate-200 bg-white px-3 sm:px-4 py-3 shadow-sm w-full sm:w-auto">
-                                            <p class="col-span-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Tarif Aktif</p>
-                                            <span class="text-xs font-bold text-slate-500">Rp</span>
-                                            <span id="invila-rate-display-inline" class="text-2xl sm:text-3xl font-black tracking-tight text-navy-900 leading-none">5.500</span>
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 items-center">
-                                        <input type="range" id="invila-rate-slider" min="2500" max="15000" step="250" value="5500" class="w-full">
-                                        <input id="invila-rate-input" type="number" inputmode="numeric" min="2500" max="15000" step="250" value="5500" class="w-full sm:w-32 rounded-xl border border-slate-300 bg-white px-3 py-2 text-right text-base sm:text-lg font-black tracking-tight text-navy-900 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-100">
-                                    </div>
-                                    <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                                        <span>Min Rp 2.500</span>
-                                        <span>Max Rp 15.000</span>
-                                    </div>
+                                <div class="rounded-2xl border border-teal-200 bg-white p-5">
+                                    <label class="text-xs font-bold uppercase text-teal-700 block mb-3">Tarif INVILA™: Rp <span id="invila-rate-display" class="text-navy-900 font-black">5.500</span>/m³</label>
+                                    <input type="range" id="invila-rate-slider" min="2500" max="15000" step="250" value="5500">
                                 </div>
                             </div>
                         </div>
 
-                        <div id="kpi-card" class="rounded-3xl bg-navy-900 p-5 sm:p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
-                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-teal-500/20 rounded-full blur-3xl"></div>
-                            <div id="kpi-content" class="relative z-10">
-                                <p id="kpi-title" class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-6">Proyeksi Penghematan Kas</p>
-                                <p id="monthly-label" class="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Per Bulan</p>
-                                <div id="monthly-saving-display" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5 sm:mb-6 break-words">Rp 0</div>
-                                <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-                                    <p id="yearly-label" class="text-[10px] uppercase tracking-widest text-teal-300 mb-1">Akumulasi 1 Tahun</p>
-                                    <div id="yearly-saving-display" class="text-lg sm:text-xl font-bold text-white break-words">Rp 0</div>
-                                </div>
-                            </div>
+                        <div class="rounded-3xl bg-navy-900 p-8 text-white shadow-xl">
+                            <p class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-4">Penghematan Kas</p>
+                            <div id="monthly-saving-display" class="text-3xl font-extrabold mb-4">Rp 0</div>
+                            <p class="text-[10px] uppercase text-slate-400 mb-1">Akumulasi 1 Tahun</p>
+                            <div id="yearly-saving-display" class="text-xl font-bold text-teal-200">Rp 0</div>
                         </div>
                     </div>
 
-                    <div id="chart-card" class="rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 md:p-8 shadow-sm flex flex-col h-full">
-                        <div class="mb-5 sm:mb-6 flex justify-between items-start flex-col sm:flex-row gap-3 sm:gap-4">
-                            <div>
-                                <h3 class="text-lg font-bold text-navy-900">Perbandingan Beban Akumulatif (5 Tahun)</h3>
-                                <p class="text-xs text-slate-500 mt-1">Mengilustrasikan <em>Capital Drain</em> vs <em>Flat Opex</em></p>
-                            </div>
-                            <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-200 w-full sm:w-auto">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Asumsi Tarif INVILA™</p>
-                                <p id="chart-rate-display" class="text-sm font-black text-teal-700">Rp 5.500 / m³</p>
-                            </div>
-                        </div>
-
+                    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col h-full">
+                        <h3 class="text-lg font-bold text-navy-900 mb-4">Perbandingan Beban Akumulatif (5 Tahun)</h3>
                         <div class="chart-container flex-grow">
                             <canvas id="cashflowChart"></canvas>
                         </div>
-
-                        <p id="chart-footnote" class="text-xs text-slate-400 mt-6 text-center italic">
-                            *Grafik bersifat ilustratif. Metode tradisional mengasumsikan base capex + variable capex berdasarkan kapasitas, ditambah akumulasi opex dengan eskalasi tahunan.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="manajemen-risiko" class="bg-slate-50 py-14 sm:py-16 md:py-20 border-b border-slate-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="bg-white border-l-4 border-navy-900 p-4 sm:p-5 rounded-r-xl mb-8 sm:mb-12 shadow-sm">
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        <strong class="text-navy-900 font-bold uppercase tracking-wider text-xs block mb-2">Peralihan Risiko Operasional Secara Total</strong>
-                        Model WaaS bukan hanya skema pembiayaan, melainkan instrumen perlindungan kepatuhan.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-5 sm:gap-8">
-                    <div class="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 hover:shadow-lg hover:border-teal-500 transition-all duration-300 group">
-                        <div class="text-4xl text-teal-600 mb-6 group-hover:scale-110 transition-transform">&#128188;</div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">Liquidity Preservation</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Dana miliaran rupiah yang sebelumnya terkunci untuk infrastruktur limbah dapat dialokasikan ke ekspansi fasilitas inti.
-                        </p>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 hover:shadow-lg hover:border-teal-500 transition-all duration-300 group">
-                        <div class="text-4xl text-teal-600 mb-6 group-hover:scale-110 transition-transform">&#9878;</div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">Manajemen Risiko SLA</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Risiko kegagalan pengolahan dan ancaman penalti regulasi dialihkan ke pihak kami melalui parameter layanan yang terukur.
-                        </p>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 hover:shadow-lg hover:border-teal-500 transition-all duration-300 group">
-                        <div class="text-4xl text-teal-600 mb-6 group-hover:scale-110 transition-transform">&#128187;</div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">Transparansi SCADA-IoT</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Kinerja debit air dan parameter utama disajikan live ke dashboard manajemen internal untuk pengawasan obyektif.
-                        </p>
-                    </div>
-                </div>
+        <section id="tindak-lanjut" class="py-16 px-4 max-w-5xl mx-auto">
+            <div class="bg-teal-50 border-l-4 border-teal-600 p-5 rounded-r-xl mb-12 shadow-sm">
+                <p class="text-sm text-slate-700 leading-relaxed">
+                    <strong class="text-teal-800 font-bold uppercase tracking-wider text-xs block mb-2">LANGKAH LANJUT YANG LEBIH RELEVAN</strong>
+                    Setelah melihat simulasi, pabrik dapat melanjutkan pembahasan melalui jalur yang paling sesuai—baik untuk pendalaman teknis maupun evaluasi kelayakan awal di tingkat eksekutif.
+                </p>
             </div>
-        </section>
-
-        <section id="tindak-lanjut" class="bg-white py-14 sm:py-16 md:py-20">
-            <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-                <div class="bg-teal-50 border-l-4 border-teal-600 p-4 sm:p-5 rounded-r-xl mb-8 sm:mb-12 shadow-sm">
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        <strong class="text-teal-800 font-bold uppercase tracking-wider text-xs block mb-2">LANGKAH LANJUT YANG LEBIH RELEVAN</strong>
-                        Setelah melihat simulasi, pabrik dapat melanjutkan pembahasan melalui jalur yang paling sesuai—baik untuk pendalaman teknis maupun evaluasi kelayakan awal di tingkat eksekutif.
-                    </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border border-slate-200 rounded-3xl p-8 bg-slate-50 text-center">
+                    <h3 class="text-xl font-bold text-navy-900 mb-4">Delegasikan Kajian Teknis</h3>
+                    <p class="text-sm text-slate-600 mb-6">Bedah kapabilitas sistem pengolahan INVILA™ bersama tim rekayasa Anda.</p>
+                    <a href="https://invila.asia" target="_blank" class="inline-block w-full py-3 rounded-xl bg-white border border-slate-300 font-bold text-navy-900 hover:bg-slate-50 transition">Akses Portal invila.asia</a>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-5 sm:gap-8">
-                    <div class="border border-slate-200 rounded-[32px] p-6 sm:p-8 md:p-10 flex flex-col justify-between items-center text-center bg-slate-50 hover:bg-slate-100 transition-colors">
-                        <div>
-                            <div class="text-4xl text-slate-400 mb-6">&#9881;</div>
-                            <h3 class="text-xl font-extrabold text-navy-900 mb-3">Delegasikan Kajian Teknis</h3>
-                            <p class="text-sm text-slate-600 mb-8 leading-relaxed">
-                                Teruskan tautan infrastruktur teknologi kami kepada <strong>Plant Manager</strong> atau tim rekayasa Anda untuk membedah kapabilitas sistem pengolahan INVILA™.
-                            </p>
-                        </div>
-                        <a href="https://invila.asia" target="_blank" class="w-full inline-flex justify-center items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 sm:px-6 py-4 text-sm font-bold text-navy-900 hover:border-slate-400 transition-colors shadow-sm">
-                            Akses Portal invila.asia <span class="text-lg leading-none">&#8599;</span>
-                        </a>
-                    </div>
-
-                    <div class="border border-teal-600 rounded-[32px] p-6 sm:p-8 md:p-10 flex flex-col justify-between items-center text-center bg-teal-700 shadow-2xl shadow-teal-900/20">
-                        <div>
-                            <div class="text-4xl text-teal-300 mb-6">&#9993;</div>
-                            <h3 class="text-xl font-extrabold text-white mb-3">Konsultasi Kelayakan Eksekutif</h3>
-                            <p class="text-sm text-teal-100 mb-8 leading-relaxed">
-                                Tindak lanjuti hasil simulasi ROI Anda. Jadwalkan audit kelayakan awal bersama konsultan strategis kami tanpa komitmen finansial di muka.
-                            </p>
-                        </div>
-                        <a href="#" id="dynamic-wa-cta" target="_blank" class="w-full inline-flex justify-center items-center gap-2 rounded-xl bg-white px-5 sm:px-6 py-4 sm:py-5 text-sm font-bold uppercase tracking-[0.18em] sm:tracking-widest text-teal-800 hover:bg-slate-100 transition-transform hover:scale-[1.02] sm:hover:scale-105 shadow-md">
-                            Ajukan Audit Gratis <span class="text-lg leading-none">&#8594;</span>
-                        </a>
-                    </div>
+                <div class="border border-teal-600 rounded-3xl p-8 bg-teal-700 text-center text-white shadow-xl">
+                    <h3 class="text-xl font-bold mb-4">Konsultasi Kelayakan Eksekutif</h3>
+                    <p class="text-sm text-teal-100 mb-6">Jadwalkan audit kelayakan awal bersama konsultan strategis kami.</p>
+                    <a href="#" id="wa-cta" target="_blank" class="inline-block w-full py-3 rounded-xl bg-white font-bold text-teal-800 uppercase tracking-widest hover:scale-105 transition">Ajukan Audit Gratis</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-navy-900 py-10 text-center">
-        <p class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">© 2024 PT InvilaTirta Nusantara | Industrial Water Infrastructure Partner</p>
+    <footer class="bg-navy-900 py-12 text-center text-slate-400">
+        <div class="mx-auto max-w-7xl px-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-white mb-4">
+                © 2024 PT Invila Tirta Nusantara | Industrial Water Infrastructure Partner
+            </p>
+            <div class="flex flex-col gap-2 text-[11px] sm:text-xs leading-relaxed">
+                <p>Sentra Niaga 2 No. Bekasi 17131, Jawa Barat</p>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                    <p><span class="text-teal-500 font-bold">Telp:</span> +62 21 8886 6168</p>
+                    <p><span class="text-teal-500 font-bold">Email:</span> invilawatertreatment@gmail.com</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <div class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur-md md:hidden" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
-        <a href="#" id="mobile-wa-cta" target="_blank" class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-teal-700 px-5 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-teal-900/15 transition-transform active:scale-[0.99]">
-            Audit Gratis via WhatsApp <span class="text-lg leading-none">&#8599;</span>
-        </a>
-    </div>
-
     <script>
-(function () {
-    function onReady(fn) {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', fn, { once: true });
-        } else {
-            fn();
-        }
-    }
-
-    function buildHtml(parts) {
-        return parts.join('');
-    }
-
-    class InvilaWaaSDashboardV21 {
-        constructor() {
-            this.config = {
-                invilaRate: 5500,
-                targetPhone: '6285219493322',
-                baseCapex: 1500000000,
-                variableCapexPerInstalledM3: 1500000,
-                traditionalEscalationRate: 0.06,
-                invilaEscalationRate: 0.02,
-                operatingDaysPerYear: 365,
-                projectionYears: 5,
-                initialVolume: 1500,
-                initialCurrentCost: 7500,
-                defaultMode: 'persuasive',
-                animationDuration: 450
-            };
-
-            this.state = {
-                volume: this.config.initialVolume,
-                currentCost: this.config.initialCurrentCost,
-                invilaRate: this.config.invilaRate,
-                mode: this.config.defaultMode
-            };
-
-            this.dom = {};
-            this.chart = null;
-            this.renderFrame = null;
-
-            this.currencyFormatter = new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                maximumFractionDigits: 0
-            });
-
-            this.numberFormatter = new Intl.NumberFormat('id-ID', {
-                maximumFractionDigits: 0
-            });
-        }
-
-        init() {
-            this.cacheDom();
-            this.validateDom();
-            this.enhanceUi();
-            this.bindEvents();
-            this.syncStateFromInputs();
-            this.createChart();
-            this.render();
-            this.runSelfChecks();
-        }
-
-        cacheDom() {
-            this.dom = {
-                volSlider: document.getElementById('volume-slider'),
-                costSlider: document.getElementById('cost-slider'),
-                volDisplay: document.getElementById('volume-display'),
-                costDisplay: document.getElementById('cost-display'),
-                invilaRateInput: document.getElementById('invila-rate-input'),
-                invilaRateSlider: document.getElementById('invila-rate-slider'),
-                invilaRateInlineDisplay: document.getElementById('invila-rate-display-inline'),
-                monthlySaving: document.getElementById('monthly-saving-display'),
-                yearlySaving: document.getElementById('yearly-saving-display'),
-                waCtaLink: document.getElementById('dynamic-wa-cta'),
-                mobileWaCta: document.getElementById('mobile-wa-cta'),
-                chartCanvas: document.getElementById('cashflowChart'),
-                inputPanel: document.getElementById('parameter-card'),
-                inputControlsStack: (function () {
-                    const panel = document.getElementById('parameter-card');
-                    return document.getElementById('parameter-stack') ||
-                        (panel ? panel.querySelector('[id="parameter-stack"]') : null) ||
-                        (panel ? panel.querySelector('div.space-y-6, div.space-y-8') : null) ||
-                        null;
-                })(),
-                kpiContent: document.getElementById('kpi-content'),
-                kpiTitle: document.getElementById('kpi-title'),
-                monthlyLabel: document.getElementById('monthly-label'),
-                yearlyLabel: document.getElementById('yearly-label'),
-                chartFootnote: document.getElementById('chart-footnote'),
-                chartHeaderRateDisplay: document.getElementById('chart-rate-display')
-            };
-        }
-
-        validateDom() {
-            const required = [
-                'volSlider', 'costSlider', 'volDisplay', 'costDisplay',
-                'invilaRateInput', 'invilaRateSlider', 'invilaRateInlineDisplay',
-                'monthlySaving', 'yearlySaving', 'waCtaLink', 'mobileWaCta', 'chartCanvas',
-                'kpiContent', 'kpiTitle', 'monthlyLabel', 'yearlyLabel',
-                'chartFootnote', 'chartHeaderRateDisplay'
-            ];
-
-            const missing = required.filter((key) => !this.dom[key]);
-            if (missing.length > 0) {
-                throw new Error('Elemen DOM tidak ditemukan: ' + missing.join(', '));
-            }
-        }
-
-        enhanceUi() {
-            this.injectModeSwitcher();
-            this.injectInvilaRateCard();
-            this.injectFiveYearGapCard();
-            this.injectAssumptionSummary();
-        }
-
-        injectModeSwitcher() {
-            if (this.dom.modeSwitcher) return;
-
-            const anchor = this.dom.inputControlsStack || this.dom.inputPanel;
-            if (!anchor || !anchor.parentNode) return;
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'mb-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm';
-            wrapper.innerHTML = buildHtml([
-                '<div class="flex items-center justify-between gap-4 flex-wrap">',
-                    '<div>',
-                        '<p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Mode Analisis</p>',
-                        '<p class="text-xs text-slate-600 leading-relaxed">Persuasif menyamakan nilai negatif menjadi nol. Transparan menampilkan selisih biaya apa adanya.</p>',
-                    '</div>',
-                    '<div class="inline-flex rounded-xl border border-slate-200 bg-slate-50 p-1">',
-                        '<button type="button" data-mode="persuasive" class="mode-btn rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all">Persuasif</button>',
-                        '<button type="button" data-mode="transparent" class="mode-btn rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all">Transparan</button>',
-                    '</div>',
-                '</div>'
-            ]);
-
-            anchor.before(wrapper);
-            this.dom.modeSwitcher = wrapper;
-            this.dom.modeButtons = {
-                persuasive: wrapper.querySelector('[data-mode="persuasive"]'),
-                transparent: wrapper.querySelector('[data-mode="transparent"]')
-            };
-        }
-
-        injectInvilaRateCard() {
-            if (this.dom.invilaRateCard) return;
-
-            const anchor = this.dom.inputControlsStack || this.dom.inputPanel;
-            if (!anchor || !anchor.parentNode) return;
-
-            const rateCard = document.createElement('div');
-            rateCard.className = 'mb-4 rounded-2xl border border-teal-200 bg-teal-50 p-4 shadow-sm';
-            rateCard.innerHTML = buildHtml([
-                '<p class="text-[10px] font-bold uppercase tracking-widest text-teal-700 mb-1">Tarif INVILA™</p>',
-                '<div data-role="invila-rate-display" class="text-2xl font-black tracking-tight text-teal-800">Rp 0 <span class="text-sm font-bold">/m³</span></div>',
-                '<p class="mt-2 text-xs leading-relaxed text-slate-600">Tarif simulasi dasar yang dipakai untuk membandingkan model tradisional vs skema WaaS INVILA™.</p>'
-            ]);
-
-            anchor.before(rateCard);
-            this.dom.invilaRateCard = rateCard;
-            this.dom.invilaRateDisplay = rateCard.querySelector('[data-role="invila-rate-display"]');
-        }
-
-        injectFiveYearGapCard() {
-            if (!this.dom.kpiContent || this.dom.gapDisplay) return;
-
-            const gapCard = document.createElement('div');
-            gapCard.className = 'mt-4 rounded-2xl border border-white/10 bg-white/5 p-4';
-            gapCard.innerHTML = buildHtml([
-                '<p data-role="gap-label" class="text-[10px] uppercase tracking-widest text-teal-300 mb-1">Gap Biaya 5 Tahun</p>',
-                '<div data-role="gap-display" class="text-xl font-bold text-white">Rp 0</div>'
-            ]);
-
-            const modeNote = document.createElement('p');
-            modeNote.className = 'mt-4 text-[11px] leading-relaxed text-slate-300';
-
-            this.dom.kpiContent.appendChild(gapCard);
-            this.dom.kpiContent.appendChild(modeNote);
-
-            this.dom.gapLabel = gapCard.querySelector('[data-role="gap-label"]');
-            this.dom.gapDisplay = gapCard.querySelector('[data-role="gap-display"]');
-            this.dom.modeNote = modeNote;
-        }
-
-        injectAssumptionSummary() {
-            if (!this.dom.chartFootnote || this.dom.assumptionSummary) return;
-
-            const box = document.createElement('div');
-            box.className = 'mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4';
-            box.innerHTML = buildHtml([
-                '<p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Asumsi Simulasi 2.1</p>',
-                '<p data-role="assumption-summary" class="text-xs leading-relaxed text-slate-600">-</p>'
-            ]);
-
-            this.dom.chartFootnote.after(box);
-            this.dom.assumptionSummary = box.querySelector('[data-role="assumption-summary"]');
-        }
-
-        bindEvents() {
-            this.dom.volSlider.addEventListener('input', () => {
-                this.syncStateFromInputs();
-                this.scheduleRender();
-            });
-
-            this.dom.costSlider.addEventListener('input', () => {
-                this.syncStateFromInputs();
-                this.scheduleRender();
-            });
-
-            this.dom.invilaRateSlider.addEventListener('input', () => {
-                this.dom.invilaRateInput.value = this.dom.invilaRateSlider.value;
-                this.syncStateFromInputs();
-                this.scheduleRender();
-            });
-
-            this.dom.invilaRateInput.addEventListener('input', () => {
-                const normalized = this.clampNumber(this.dom.invilaRateInput.value, 2500, 15000, this.config.invilaRate);
-                this.dom.invilaRateInput.value = Math.round(normalized);
-                this.dom.invilaRateSlider.value = Math.round(normalized);
-                this.syncStateFromInputs();
-                this.scheduleRender();
-            });
-
-            this.dom.invilaRateInput.addEventListener('change', () => {
-                const normalized = this.clampNumber(this.dom.invilaRateInput.value, 2500, 15000, this.config.invilaRate);
-                this.dom.invilaRateInput.value = Math.round(normalized);
-                this.dom.invilaRateSlider.value = Math.round(normalized);
-                this.syncStateFromInputs();
-                this.scheduleRender();
-            });
-
-            if (this.dom.modeButtons) {
-                Object.keys(this.dom.modeButtons).forEach((mode) => {
-                    const button = this.dom.modeButtons[mode];
-                    if (!button) return;
-                    button.addEventListener('click', () => this.setMode(mode));
-                });
-            }
-        }
-
-        setMode(mode) {
-            if (['persuasive', 'transparent'].indexOf(mode) === -1) return;
-            if (this.state.mode === mode) return;
-            this.state.mode = mode;
-            this.scheduleRender();
-        }
-
-        scheduleRender() {
-            if (this.renderFrame) cancelAnimationFrame(this.renderFrame);
-            this.renderFrame = requestAnimationFrame(() => {
-                this.render();
-                this.renderFrame = null;
-            });
-        }
-
-        syncStateFromInputs() {
-            this.state.volume = this.clampNumber(this.dom.volSlider.value, 100, 10000, this.config.initialVolume);
-            this.state.currentCost = this.clampNumber(this.dom.costSlider.value, 2000, 25000, this.config.initialCurrentCost);
-            this.state.invilaRate = this.clampNumber(this.dom.invilaRateInput.value, 2500, 15000, this.config.invilaRate);
-
-            this.dom.invilaRateInput.value = Math.round(this.state.invilaRate);
-            this.dom.invilaRateSlider.value = Math.round(this.state.invilaRate);
-            this.dom.invilaRateInlineDisplay.textContent = this.formatNumber(this.state.invilaRate);
-        }
-
-        clampNumber(value, min, max, fallback) {
-            const parsed = Number(value);
-            if (!Number.isFinite(parsed)) return fallback;
-            return Math.min(max, Math.max(min, parsed));
-        }
-
-        render() {
-            const metrics = this.calculateMetrics();
-            this.renderModeButtons();
-            this.renderInputDisplays();
-            this.renderInvilaRate();
-            this.renderKpis(metrics);
-            this.renderAssumptionSummary(metrics);
-            this.renderWhatsAppCta(metrics);
-            this.renderChart(metrics);
-        }
-
-        calculateMetrics() {
-            const yearlyVolume = this.state.volume * this.config.operatingDaysPerYear;
-            const monthlyVolume = yearlyVolume / 12;
-            const assumedCapex = this.config.baseCapex + (this.state.volume * this.config.variableCapexPerInstalledM3);
-            const year1TraditionalOpex = yearlyVolume * this.state.currentCost;
-            const year1InvilaOpex = yearlyVolume * this.state.invilaRate;
-            const labels = this.buildYearLabels(this.config.projectionYears);
-            const traditionalSeries = [];
-            const invilaSeries = [];
-
-            let traditionalRunningTotal = assumedCapex;
-            let invilaRunningTotal = 0;
-            traditionalSeries.push(traditionalRunningTotal);
-            invilaSeries.push(invilaRunningTotal);
-
-            for (let year = 1; year <= this.config.projectionYears; year++) {
-                const traditionalAnnual = year1TraditionalOpex * Math.pow(1 + this.config.traditionalEscalationRate, year - 1);
-                const invilaAnnual = year1InvilaOpex * Math.pow(1 + this.config.invilaEscalationRate, year - 1);
-                traditionalRunningTotal += traditionalAnnual;
-                invilaRunningTotal += invilaAnnual;
-                traditionalSeries.push(traditionalRunningTotal);
-                invilaSeries.push(invilaRunningTotal);
-            }
-
-            const monthlyDeltaRaw = (year1TraditionalOpex - year1InvilaOpex) / 12;
-            const yearlyDeltaRaw = year1TraditionalOpex - year1InvilaOpex;
-            const fiveYearGapRaw = traditionalSeries[traditionalSeries.length - 1] - invilaSeries[invilaSeries.length - 1];
-            const isPersuasive = this.state.mode === 'persuasive';
-
-            return {
-                labels: labels,
-                assumedCapex: assumedCapex,
-                yearlyVolume: yearlyVolume,
-                monthlyVolume: monthlyVolume,
-                monthlyDeltaRaw: monthlyDeltaRaw,
-                yearlyDeltaRaw: yearlyDeltaRaw,
-                fiveYearGapRaw: fiveYearGapRaw,
-                monthlyDeltaDisplay: isPersuasive ? Math.max(0, monthlyDeltaRaw) : monthlyDeltaRaw,
-                yearlyDeltaDisplay: isPersuasive ? Math.max(0, yearlyDeltaRaw) : yearlyDeltaRaw,
-                fiveYearGapDisplay: isPersuasive ? Math.max(0, fiveYearGapRaw) : fiveYearGapRaw,
-                traditionalSeries: traditionalSeries,
-                invilaSeries: invilaSeries
-            };
-        }
-
-        buildYearLabels(years) {
-            return Array.from({ length: years + 1 }, function (_, i) { return 'Tahun ' + i; });
-        }
-
-        renderModeButtons() {
-            if (!this.dom.modeButtons) return;
-
-            Object.keys(this.dom.modeButtons).forEach((mode) => {
-                const button = this.dom.modeButtons[mode];
-                if (!button) return;
-                const isActive = this.state.mode === mode;
-                button.classList.remove('bg-navy-900', 'text-white', 'shadow-sm', 'text-slate-600', 'hover:text-navy-900');
-                if (isActive) {
-                    button.classList.add('bg-navy-900', 'text-white', 'shadow-sm');
-                } else {
-                    button.classList.add('text-slate-600', 'hover:text-navy-900');
+        (function () {
+            class InvilaWaaSDashboard {
+                constructor() {
+                    this.config = {
+                        operatingDays: 365, baseCapex: 1500000000, varCapex: 1500000,
+                        tradEsc: 0.06, invEsc: 0.02, phone: '6285219493322'
+                    };
+                    this.state = { volume: 1500, cost: 7500, rate: 5500 };
+                    this.numFmt = new Intl.NumberFormat('id-ID');
+                    this.curFmt = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });
                 }
-            });
-        }
 
-        renderInputDisplays() {
-            this.dom.volDisplay.textContent = this.formatNumber(this.state.volume);
-            this.dom.costDisplay.textContent = this.formatNumber(this.state.currentCost);
-            this.dom.invilaRateInput.value = Math.round(this.state.invilaRate);
-            this.dom.invilaRateSlider.value = Math.round(this.state.invilaRate);
-            this.dom.invilaRateInlineDisplay.textContent = this.formatNumber(this.state.invilaRate);
-        }
+                init() {
+                    this.dom = {
+                        volS: document.getElementById('volume-slider'), volD: document.getElementById('volume-display'),
+                        costS: document.getElementById('cost-slider'), costD: document.getElementById('cost-display'),
+                        rateS: document.getElementById('invila-rate-slider'), rateD: document.getElementById('invila-rate-display'),
+                        monD: document.getElementById('monthly-saving-display'), yerD: document.getElementById('yearly-saving-display'),
+                        canvas: document.getElementById('cashflowChart'), wa: document.getElementById('wa-cta')
+                    };
+                    this.bind();
+                    this.createChart();
+                    this.render();
+                }
 
-        renderInvilaRate() {
-            const rateHtml = this.formatCurrency(this.state.invilaRate) + ' <span class="text-sm font-bold">/m³</span>';
-            if (this.dom.invilaRateDisplay) this.dom.invilaRateDisplay.innerHTML = rateHtml;
-            if (this.dom.chartHeaderRateDisplay) this.dom.chartHeaderRateDisplay.textContent = this.formatCurrency(this.state.invilaRate) + ' / m³';
-        }
+                bind() {
+                    const update = (key, val) => { this.state[key] = Number(val); this.render(); };
+                    this.dom.volS.oninput = (e) => update('volume', e.target.value);
+                    this.dom.costS.oninput = (e) => update('cost', e.target.value);
+                    this.dom.rateS.oninput = (e) => update('rate', e.target.value);
+                }
 
-        renderKpis(metrics) {
-            const isPersuasive = this.state.mode === 'persuasive';
-            this.dom.kpiTitle.textContent = isPersuasive ? 'Proyeksi Penghematan Kas' : 'Simulasi Selisih Biaya';
-            this.dom.monthlyLabel.textContent = isPersuasive ? 'Per Bulan' : 'Selisih / Bulan';
-            this.dom.yearlyLabel.textContent = isPersuasive ? 'Akumulasi 1 Tahun' : 'Selisih / Tahun';
+                calculate() {
+                    const annualVol = this.state.volume * this.config.operatingDays;
+                    const year1Trad = annualVol * this.state.cost;
+                    const year1Invila = annualVol * this.state.rate;
+                    const tradS = [this.config.baseCapex + (this.state.volume * this.config.varCapex)];
+                    const invS = [0];
 
-            if (this.dom.gapLabel) {
-                this.dom.gapLabel.textContent = isPersuasive ? 'Gap Biaya 5 Tahun' : 'Selisih Kumulatif 5 Tahun';
-            }
-
-            this.dom.monthlySaving.textContent = isPersuasive ? this.formatCurrency(metrics.monthlyDeltaDisplay) : this.formatCurrencySigned(metrics.monthlyDeltaDisplay);
-            this.dom.yearlySaving.textContent = isPersuasive ? this.formatCurrency(metrics.yearlyDeltaDisplay) : this.formatCurrencySigned(metrics.yearlyDeltaDisplay);
-
-            if (this.dom.gapDisplay) {
-                this.dom.gapDisplay.textContent = isPersuasive ? this.formatCurrency(metrics.fiveYearGapDisplay) : this.formatCurrencySigned(metrics.fiveYearGapDisplay);
-                this.applyDeltaTone(this.dom.gapDisplay, metrics.fiveYearGapRaw, false);
-            }
-
-            this.applyDeltaTone(this.dom.monthlySaving, metrics.monthlyDeltaRaw, true);
-            this.applyDeltaTone(this.dom.yearlySaving, metrics.yearlyDeltaRaw, false);
-
-            if (this.dom.modeNote) {
-                this.dom.modeNote.textContent = isPersuasive
-                    ? 'Mode Persuasif menjaga framing manfaat dengan menyamakan nilai negatif menjadi Rp 0 pada KPI.'
-                    : 'Mode Transparan menampilkan selisih biaya sebenarnya, termasuk jika hasilnya negatif.';
-            }
-        }
-
-        applyDeltaTone(element, value, prominent) {
-            if (!element) return;
-            element.classList.remove('text-white', 'text-slate-200', 'text-teal-200', 'text-rose-300');
-            if (value > 0) {
-                element.classList.add(prominent ? 'text-white' : 'text-teal-200');
-                return;
-            }
-            if (value < 0) {
-                element.classList.add('text-rose-300');
-                return;
-            }
-            element.classList.add('text-slate-200');
-        }
-
-        renderAssumptionSummary(metrics) {
-            if (!this.dom.assumptionSummary) return;
-            const modeLabel = this.state.mode === 'persuasive' ? 'Persuasif' : 'Transparan';
-            this.dom.assumptionSummary.innerHTML = buildHtml([
-                'Tarif INVILA™ simulasi: <strong>', this.formatCurrency(this.state.invilaRate), ' /m³</strong>. ',
-                'Capex tradisional disimulasikan sebagai <strong>', this.formatCurrency(this.config.baseCapex), '</strong> + <strong>', this.formatCurrency(this.config.variableCapexPerInstalledM3), '</strong> per m³ kapasitas. ',
-                'Opex existing diasumsikan naik <strong>', this.formatPercent(this.config.traditionalEscalationRate), '</strong> per tahun, sedangkan tarif INVILA™ naik <strong>', this.formatPercent(this.config.invilaEscalationRate), '</strong> per tahun. ',
-                'Horizon analisis: <strong>', String(this.config.projectionYears), ' tahun</strong>. ',
-                'Mode aktif: <strong>', modeLabel, '</strong>. ',
-                'Gap kumulatif 5 tahun saat ini: <strong>', this.formatCurrencySigned(metrics.fiveYearGapRaw), '</strong>.'
-            ]);
-        }
-
-        renderWhatsAppCta(metrics) {
-            const modeLabel = this.state.mode === 'persuasive' ? 'Persuasif' : 'Transparan';
-            const deltaMonthly = this.state.mode === 'persuasive' ? this.formatCurrency(metrics.monthlyDeltaDisplay) : this.formatCurrencySigned(metrics.monthlyDeltaDisplay);
-            const deltaYearly = this.state.mode === 'persuasive' ? this.formatCurrency(metrics.yearlyDeltaDisplay) : this.formatCurrencySigned(metrics.yearlyDeltaDisplay);
-            const gapFiveYears = this.state.mode === 'persuasive' ? this.formatCurrency(metrics.fiveYearGapDisplay) : this.formatCurrencySigned(metrics.fiveYearGapDisplay);
-            const messageLines = [
-                'Halo Konsultan INVILA™, melalui aplikasi interaktif The Hook, pabrik saya mengindikasikan:',
-                '- Volume: ' + this.formatNumber(this.state.volume) + ' m3/hari',
-                '- Opex Eksisting: Rp ' + this.formatNumber(this.state.currentCost) + '/m3',
-                '- Tarif INVILA™ Simulasi: Rp ' + this.formatNumber(this.state.invilaRate) + '/m3',
-                '- Mode Analisis: ' + modeLabel,
-                '- Asumsi Capex Tradisional: ' + this.formatCurrency(metrics.assumedCapex),
-                '- Eskalasi Opex Existing: ' + this.formatPercent(this.config.traditionalEscalationRate) + '/tahun',
-                '- Eskalasi Tarif INVILA™: ' + this.formatPercent(this.config.invilaEscalationRate) + '/tahun',
-                '- Delta Bulanan Tahun 1: ' + deltaMonthly,
-                '- Delta Tahunan Tahun 1: ' + deltaYearly,
-                '- Gap Kumulatif 5 Tahun: ' + gapFiveYears,
-                '',
-                'Mohon informasi penjadwalan Audit Kelayakan untuk implementasi model WaaS.'
-            ];
-            const waHref = 'https://wa.me/' + this.config.targetPhone + '?text=' + encodeURIComponent(messageLines.join(String.fromCharCode(10)));
-            this.dom.waCtaLink.href = waHref;
-            if (this.dom.mobileWaCta) this.dom.mobileWaCta.href = waHref;
-        }
-
-        createChart() {
-            if (typeof window.Chart === 'undefined') {
-                this.showChartUnavailable('Chart.js belum berhasil dimuat.');
-                return;
-            }
-
-            const ctx = this.dom.chartCanvas.getContext('2d');
-            if (!ctx) {
-                this.showChartUnavailable('Canvas grafik tidak tersedia.');
-                return;
-            }
-
-            this.chart = new window.Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: this.buildYearLabels(this.config.projectionYears),
-                    datasets: [
-                        {
-                            label: 'Tradisional (Capex + Opex Eksisting)',
-                            data: [],
-                            borderColor: '#0f172a',
-                            backgroundColor: 'rgba(15, 23, 42, 0.05)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.3,
-                            pointRadius: 4,
-                            pointHoverRadius: 6
-                        },
-                        {
-                            label: 'INVILA™ WaaS (0 Capex + Tarif Bertahap)',
-                            data: [],
-                            borderColor: '#0d9488',
-                            backgroundColor: 'rgba(13, 148, 136, 0.10)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.3,
-                            pointRadius: 4,
-                            pointHoverRadius: 6
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    animation: { duration: this.config.animationDuration },
-                    interaction: { mode: 'index', intersect: false },
-                    plugins: {
-                        tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                            padding: 12,
-                            titleFont: { size: 13, family: 'Segoe UI' },
-                            bodyFont: { size: 14, family: 'Segoe UI', weight: 'bold' },
-                            callbacks: {
-                                label: (context) => {
-                                    const label = context.dataset.label || '';
-                                    const value = context.parsed.y ?? 0;
-                                    return label + ': ' + this.formatCompactCurrency(value);
-                                }
-                            }
-                        },
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: { family: 'Segoe UI', size: 12, weight: '600' },
-                                padding: 20,
-                                usePointStyle: true
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: { font: { weight: '600' } }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            grid: { color: '#e2e8f0', borderDash: [5, 5] },
-                            ticks: {
-                                font: { size: 11 },
-                                callback: (value) => this.formatAxisBillions(value)
-                            }
-                        }
+                    for(let i=1; i<=5; i++) {
+                        tradS.push(tradS[i-1] + (year1Trad * Math.pow(1+this.config.tradEsc, i-1)));
+                        invS.push(invS[i-1] + (year1Invila * Math.pow(1+this.config.invEsc, i-1)));
                     }
+                    return { tradS, invS, monS: (year1Trad - year1Invila)/12, yerS: (year1Trad - year1Invila) };
                 }
-            });
-        }
 
-        showChartUnavailable(message) {
-            const container = this.dom.chartCanvas && this.dom.chartCanvas.parentElement;
-            if (!container) return;
-            container.innerHTML = '<div class="flex h-full min-h-[240px] items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500">' + message + '</div>';
-        }
+                render() {
+                    const m = this.calculate();
+                    this.dom.volD.textContent = this.numFmt.format(this.state.volume);
+                    this.dom.costD.textContent = this.numFmt.format(this.state.cost);
+                    this.dom.rateD.textContent = this.numFmt.format(this.state.rate);
+                    this.dom.monD.textContent = this.curFmt.format(Math.max(0, m.monS)) + "/bln";
+                    this.dom.yerD.textContent = this.curFmt.format(Math.max(0, m.yerS));
+                    
+                    const msg = `Halo INVILA™ Group, saya mensimulasikan Volume ${this.state.volume}m3/hari dengan potensi penghematan ${this.curFmt.format(m.yerS)}/tahun. Mohon audit kelayakan awal.`;
+                    this.dom.wa.href = `https://wa.me/${this.config.phone}?text=${encodeURIComponent(msg)}`;
+                    
+                    this.chart.data.datasets[0].data = m.tradS;
+                    this.chart.data.datasets[1].data = m.invS;
+                    this.chart.update();
+                }
 
-        renderChart(metrics) {
-            if (!this.chart) return;
-            this.chart.data.labels = metrics.labels;
-            this.chart.data.datasets[0].data = metrics.traditionalSeries;
-            this.chart.data.datasets[1].data = metrics.invilaSeries;
-            this.chart.update();
-        }
-
-        formatCurrency(value) {
-            return this.currencyFormatter.format(Math.round(value));
-        }
-
-        formatCurrencySigned(value) {
-            const rounded = Math.round(value);
-            const absFormatted = this.currencyFormatter.format(Math.abs(rounded));
-            if (rounded > 0) return '+' + absFormatted;
-            if (rounded < 0) return '-' + absFormatted;
-            return absFormatted;
-        }
-
-        formatCompactCurrency(value) {
-            const abs = Math.abs(value);
-            if (abs >= 1000000000) return 'Rp ' + (value / 1000000000).toFixed(1) + ' Miliar';
-            if (abs >= 1000000) return 'Rp ' + (value / 1000000).toFixed(1) + ' Juta';
-            return this.formatCurrency(value);
-        }
-
-        formatAxisBillions(value) {
-            return (value / 1000000000).toFixed(0) + ' Mlr';
-        }
-
-        formatNumber(value) {
-            return this.numberFormatter.format(Math.round(value));
-        }
-
-        formatPercent(value) {
-            return (value * 100).toFixed(1) + '%';
-        }
-
-        runSelfChecks() {
-            console.assert(typeof this.dom.waCtaLink.href === 'string', 'CTA link should exist');
-            console.assert(this.dom.invilaRateInput.value !== '', 'INVILA™ rate input should be populated');
-            console.assert(!this.dom.mobileWaCta || typeof this.dom.mobileWaCta.href === 'string', 'Mobile CTA link should exist');
-            console.assert(this.dom.waCtaLink.href.indexOf('wa.me/') !== -1, 'CTA link should point to WhatsApp');
-            console.assert(this.chart || (this.dom.chartCanvas && this.dom.chartCanvas.parentElement.textContent.length > 0), 'Chart or fallback should render');
-        }
-    }
-
-    onReady(function () {
-        try {
-            const dashboard = new InvilaWaaSDashboardV21();
-            dashboard.init();
-            window.invilaDashboard = dashboard;
-        } catch (error) {
-            console.error('Gagal menginisialisasi dashboard INVILA™ v2.1:', error);
-            const chartContainer = document.querySelector('.chart-container');
-            if (chartContainer) {
-                chartContainer.innerHTML = '<div class="flex h-full min-h-[240px] items-center justify-center rounded-2xl border border-dashed border-rose-200 bg-rose-50 p-6 text-center text-sm text-rose-700">Terjadi kendala saat memuat dashboard. Buka console browser untuk detail error.</div>';
+                createChart() {
+                    this.chart = new Chart(this.dom.canvas.getContext('2d'), {
+                        type: 'line',
+                        data: {
+                            labels: ['Start', 'Thn 1', 'Thn 2', 'Thn 3', 'Thn 4', 'Thn 5'],
+                            datasets: [
+                                { label: 'Tradisional', borderColor: '#0f172a', backgroundColor: 'rgba(15,23,42,0.05)', data: [], fill: true, tension: 0.3 },
+                                { label: 'INVILA™ WaaS', borderColor: '#0d9488', backgroundColor: 'rgba(13,148,136,0.1)', data: [], fill: true, tension: 0.3 }
+                            ]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+                    });
+                }
             }
-        }
-    });
-})();
+            window.onload = () => new InvilaWaaSDashboard().init();
+        })();
     </script>
 </body>
 </html>
