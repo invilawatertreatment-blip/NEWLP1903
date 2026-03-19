@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0f172a">
-    <title>Interactive WaaS Analysis | INVILA GROUP</title>
+    <title>Interactive WaaS Analysis | INVILA™ </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -116,10 +116,10 @@
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <div class="flex items-center gap-3">
                 <div class="flex h-12 w-auto items-center justify-center py-1">
-                    <img src="https://invila.asia/assets/img/logo-invila.png" alt="INVILA Logo" class="h-full w-auto object-contain">
+                    <img src="invila.png" alt="INVILA™ Logo" class="h-full w-auto object-contain">
                 </div>
                 <div class="leading-none">
-                    <div class="text-sm font-bold text-navy-900 tracking-tight">INVILA GROUP</div>
+                    <div class="text-sm font-bold text-navy-900 tracking-tight">INVILA™ GROUP</div>
                     <div class="text-[10px] font-semibold uppercase tracking-widest text-teal-600">Zero Capex Water Infrastructure</div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
                     <h2 class="text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl md:text-4xl mb-4">Simulasi Restrukturisasi Biaya</h2>
                     <p class="text-slate-600 text-base leading-relaxed">
-                        Kalibrasi <strong>Volume Air Harian</strong>, <strong>Biaya Opex Saat Ini</strong>, dan <strong>Tarif INVILA</strong> di panel sebelah kiri. Sistem akan mengkalkulasi proyeksi penghematan, gap biaya 5 tahun, dan memodelkan perbandingan akumulasi arus kas.
+                        Kalibrasi <strong>Volume Air Harian</strong>, <strong>Biaya Opex Saat Ini</strong>, dan <strong>Tarif INVILA™</strong> di panel sebelah kiri. Sistem akan mengkalkulasi proyeksi penghematan, gap biaya 5 tahun, dan memodelkan perbandingan akumulasi arus kas.
                     </p>
                 </div>
 
@@ -201,7 +201,7 @@
                                     <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
                                         <div>
                                             <div class="flex items-center gap-2 flex-wrap mb-2">
-                                                <label for="invila-rate-input" class="text-xs font-bold uppercase tracking-widest text-slate-600">Tarif INVILA (Rp/m³)</label>
+                                                <label for="invila-rate-input" class="text-xs font-bold uppercase tracking-widest text-slate-600">Tarif INVILA™ (Rp/m³)</label>
                                                 <span class="inline-flex items-center rounded-full border border-teal-200 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-700">Default Rp 5.500/m³</span>
                                             </div>
                                             <p class="text-[11px] leading-relaxed text-slate-500 max-w-[240px]">Drag slider untuk simulasi cepat, lalu koreksi dengan field angka jika perlu presisi proposal.</p>
@@ -245,7 +245,7 @@
                                 <p class="text-xs text-slate-500 mt-1">Mengilustrasikan <em>Capital Drain</em> vs <em>Flat Opex</em></p>
                             </div>
                             <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-200 w-full sm:w-auto">
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Asumsi Tarif INVILA</p>
+                                <p class="text-[10px] uppercase font-bold text-slate-400">Asumsi Tarif INVILA™</p>
                                 <p id="chart-rate-display" class="text-sm font-black text-teal-700">Rp 5.500 / m³</p>
                             </div>
                         </div>
@@ -312,7 +312,7 @@
                             <div class="text-4xl text-slate-400 mb-6">&#9881;</div>
                             <h3 class="text-xl font-extrabold text-navy-900 mb-3">Delegasikan Kajian Teknis</h3>
                             <p class="text-sm text-slate-600 mb-8 leading-relaxed">
-                                Teruskan tautan infrastruktur teknologi kami kepada <strong>Plant Manager</strong> atau tim rekayasa Anda untuk membedah kapabilitas sistem pengolahan INVILA.
+                                Teruskan tautan infrastruktur teknologi kami kepada <strong>Plant Manager</strong> atau tim rekayasa Anda untuk membedah kapabilitas sistem pengolahan INVILA™.
                             </p>
                         </div>
                         <a href="https://invila.asia" target="_blank" class="w-full inline-flex justify-center items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 sm:px-6 py-4 text-sm font-bold text-navy-900 hover:border-slate-400 transition-colors shadow-sm">
@@ -338,7 +338,7 @@
     </main>
 
     <footer class="bg-navy-900 py-10 text-center">
-        <p class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">© 2026 PT INVILA TIRTA NUSANTARA | KAWASAN INDUSTRI NASIONAL</p>
+        <p class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">© 2024 PT InvilaTirta Nusantara | Industrial Water Infrastructure Partner</p>
     </footer>
 
     <div class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur-md md:hidden" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
@@ -502,9 +502,9 @@
             const rateCard = document.createElement('div');
             rateCard.className = 'mb-4 rounded-2xl border border-teal-200 bg-teal-50 p-4 shadow-sm';
             rateCard.innerHTML = buildHtml([
-                '<p class="text-[10px] font-bold uppercase tracking-widest text-teal-700 mb-1">Tarif INVILA</p>',
+                '<p class="text-[10px] font-bold uppercase tracking-widest text-teal-700 mb-1">Tarif INVILA™</p>',
                 '<div data-role="invila-rate-display" class="text-2xl font-black tracking-tight text-teal-800">Rp 0 <span class="text-sm font-bold">/m³</span></div>',
-                '<p class="mt-2 text-xs leading-relaxed text-slate-600">Tarif simulasi dasar yang dipakai untuk membandingkan model tradisional vs skema WaaS INVILA.</p>'
+                '<p class="mt-2 text-xs leading-relaxed text-slate-600">Tarif simulasi dasar yang dipakai untuk membandingkan model tradisional vs skema WaaS INVILA™.</p>'
             ]);
 
             anchor.before(rateCard);
@@ -756,9 +756,9 @@
             if (!this.dom.assumptionSummary) return;
             const modeLabel = this.state.mode === 'persuasive' ? 'Persuasif' : 'Transparan';
             this.dom.assumptionSummary.innerHTML = buildHtml([
-                'Tarif INVILA simulasi: <strong>', this.formatCurrency(this.state.invilaRate), ' /m³</strong>. ',
+                'Tarif INVILA™ simulasi: <strong>', this.formatCurrency(this.state.invilaRate), ' /m³</strong>. ',
                 'Capex tradisional disimulasikan sebagai <strong>', this.formatCurrency(this.config.baseCapex), '</strong> + <strong>', this.formatCurrency(this.config.variableCapexPerInstalledM3), '</strong> per m³ kapasitas. ',
-                'Opex existing diasumsikan naik <strong>', this.formatPercent(this.config.traditionalEscalationRate), '</strong> per tahun, sedangkan tarif INVILA naik <strong>', this.formatPercent(this.config.invilaEscalationRate), '</strong> per tahun. ',
+                'Opex existing diasumsikan naik <strong>', this.formatPercent(this.config.traditionalEscalationRate), '</strong> per tahun, sedangkan tarif INVILA™ naik <strong>', this.formatPercent(this.config.invilaEscalationRate), '</strong> per tahun. ',
                 'Horizon analisis: <strong>', String(this.config.projectionYears), ' tahun</strong>. ',
                 'Mode aktif: <strong>', modeLabel, '</strong>. ',
                 'Gap kumulatif 5 tahun saat ini: <strong>', this.formatCurrencySigned(metrics.fiveYearGapRaw), '</strong>.'
@@ -771,14 +771,14 @@
             const deltaYearly = this.state.mode === 'persuasive' ? this.formatCurrency(metrics.yearlyDeltaDisplay) : this.formatCurrencySigned(metrics.yearlyDeltaDisplay);
             const gapFiveYears = this.state.mode === 'persuasive' ? this.formatCurrency(metrics.fiveYearGapDisplay) : this.formatCurrencySigned(metrics.fiveYearGapDisplay);
             const messageLines = [
-                'Halo Konsultan INVILA, melalui aplikasi interaktif The Hook, pabrik saya mengindikasikan:',
+                'Halo Konsultan INVILA™, melalui aplikasi interaktif The Hook, pabrik saya mengindikasikan:',
                 '- Volume: ' + this.formatNumber(this.state.volume) + ' m3/hari',
                 '- Opex Eksisting: Rp ' + this.formatNumber(this.state.currentCost) + '/m3',
-                '- Tarif INVILA Simulasi: Rp ' + this.formatNumber(this.state.invilaRate) + '/m3',
+                '- Tarif INVILA™ Simulasi: Rp ' + this.formatNumber(this.state.invilaRate) + '/m3',
                 '- Mode Analisis: ' + modeLabel,
                 '- Asumsi Capex Tradisional: ' + this.formatCurrency(metrics.assumedCapex),
                 '- Eskalasi Opex Existing: ' + this.formatPercent(this.config.traditionalEscalationRate) + '/tahun',
-                '- Eskalasi Tarif INVILA: ' + this.formatPercent(this.config.invilaEscalationRate) + '/tahun',
+                '- Eskalasi Tarif INVILA™: ' + this.formatPercent(this.config.invilaEscalationRate) + '/tahun',
                 '- Delta Bulanan Tahun 1: ' + deltaMonthly,
                 '- Delta Tahunan Tahun 1: ' + deltaYearly,
                 '- Gap Kumulatif 5 Tahun: ' + gapFiveYears,
@@ -819,7 +819,7 @@
                             pointHoverRadius: 6
                         },
                         {
-                            label: 'INVILA WaaS (0 Capex + Tarif Bertahap)',
+                            label: 'INVILA™ WaaS (0 Capex + Tarif Bertahap)',
                             data: [],
                             borderColor: '#0d9488',
                             backgroundColor: 'rgba(13, 148, 136, 0.10)',
@@ -924,7 +924,7 @@
 
         runSelfChecks() {
             console.assert(typeof this.dom.waCtaLink.href === 'string', 'CTA link should exist');
-            console.assert(this.dom.invilaRateInput.value !== '', 'INVILA rate input should be populated');
+            console.assert(this.dom.invilaRateInput.value !== '', 'INVILA™ rate input should be populated');
             console.assert(!this.dom.mobileWaCta || typeof this.dom.mobileWaCta.href === 'string', 'Mobile CTA link should exist');
             console.assert(this.dom.waCtaLink.href.indexOf('wa.me/') !== -1, 'CTA link should point to WhatsApp');
             console.assert(this.chart || (this.dom.chartCanvas && this.dom.chartCanvas.parentElement.textContent.length > 0), 'Chart or fallback should render');
@@ -937,7 +937,7 @@
             dashboard.init();
             window.invilaDashboard = dashboard;
         } catch (error) {
-            console.error('Gagal menginisialisasi dashboard INVILA v2.1:', error);
+            console.error('Gagal menginisialisasi dashboard INVILA™ v2.1:', error);
             const chartContainer = document.querySelector('.chart-container');
             if (chartContainer) {
                 chartContainer.innerHTML = '<div class="flex h-full min-h-[240px] items-center justify-center rounded-2xl border border-dashed border-rose-200 bg-rose-50 p-6 text-center text-sm text-rose-700">Terjadi kendala saat memuat dashboard. Buka console browser untuk detail error.</div>';
